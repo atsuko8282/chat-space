@@ -7,6 +7,28 @@
   width: 300px;
   &__user-name {
     height: 100px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    .top-items {
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 20px;
+      line-height: 20px;
+      &__name {
+        font-size: 16px;
+      }
+      &__icons {
+        width: 60px;
+        text-align: right;
+        .icon {
+          margin-left: 5px;
+          color: #ffffff;
+        }
+      }
+    }
   }
   &__group-list {
     background-color: #2f3e51;
