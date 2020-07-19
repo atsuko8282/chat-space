@@ -55,6 +55,35 @@
   width: calc(100vw - 300px);
   &__group-info{
     height: 100px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    .group-detail {
+      &__group-name {
+        color: #333333;
+        font-size: 20px;
+        margin: 35px 0 15px;
+      }
+      &__group-member {
+        color: #999999;
+        font-size: 12px;
+      }
+    }
+    .button {
+      display: flex;
+      align-items: center;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #38aef0;
+        font-size: 16px;
+        width: 72px;
+        height: 40px;
+        border: #38aef0 solid 1px;
+        text-decoration: none;
+      }
+    }
   }
   &__message-list {
     background-color: #fafafa;
