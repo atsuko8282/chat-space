@@ -4,8 +4,7 @@
       %p.group-detail__group-name test
       %p.group-detail__group-member Member : masa
     .button
-      = link_to "#" do
-        Edit
+      = link_to 'Edit', '#'
   .chat-main__message-list
     .message-detail
       .message-detail__name-date
@@ -18,3 +17,11 @@
         %p.date 2019/11/20(Wed) 17:43:34
       %p.message-detail__message 今日は夜から雨
   .chat-main__message-form
+    = form_with url: "#", method: :post, local: true do |form|
+      .text-field
+        = form.text_field :message, class: "message", placeholder: "type a message"
+        %label{ class: "text-field__image", for: "message-image" }  
+          = icon('far', 'image', class: 'icon')
+          = form.file_field :image, id: "message-image"
+      .send-button
+        = form.submit "Send", class: "send"
