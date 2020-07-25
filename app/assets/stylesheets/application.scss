@@ -2,7 +2,5 @@
 @import "modules/messages";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
-.wrapper {
-  display: flex;
-}
+@import "modules/user";
+@import "modules/flash";
