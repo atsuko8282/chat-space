@@ -40,7 +40,10 @@
     height: calc(100vh - 100px);
     .group {
       padding: 20px 20px 40px;
-      color: #ffffff;
+      a {
+        color: #ffffff;
+        text-decoration: none;
+      }
       &__group-name {
         font-size: 15px;
         margin-bottom: 5px;
