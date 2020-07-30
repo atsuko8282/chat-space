@@ -17,11 +17,11 @@
         %p.date 2019/11/20(Wed) 17:43:34
       %p.message-detail__message 今日は夜から雨
   .chat-main__message-form
-    = form_with url: "#", method: :post, local: true do |form|
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .text-field
-        = form.text_field :message, class: "message", placeholder: "type a message"
-        %label{ class: "text-field__image", for: "message-image" }  
+        = f.text_field :content, class: 'message', placeholder: 'type a message'
+        = f.label :image, class: 'text-field__image', for: 'message-image' do
           = icon('far', 'image', class: 'icon')
-          = form.file_field :image, id: "message-image"
+          = f.file_field :image, id: "message-image"
       .send-button
-        = form.submit "Send", class: "send"
+        = f.submit 'Send', class: 'send'
