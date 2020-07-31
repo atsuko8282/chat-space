@@ -1,12 +1,17 @@
 .chat-main
   .chat-main__group-info
     .group-detail
-      %p.group-detail__group-name test
-      %p.group-detail__group-member Member：masa
+      .group-detail__group-name
+        = @group.name
+      %ul.group-detail__group-member
+        %li Member：
+        - @group.users.each do |user|
+          %li.member-detail
+            = user.name
     .button
       = link_to 'Edit', '#'
   .chat-main__message-list
-    = render @messages
+    = render @messages #collectionが省略されていてメッセージの一括取得ができる
   .chat-main__message-form
     = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .text-field

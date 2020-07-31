@@ -72,6 +72,10 @@
       &__group-member {
         color: #999999;
         font-size: 12px;
+        display: flex;
+        .member-detail {
+          padding-right: 5px;
+        }
       }
     }
     .button {
