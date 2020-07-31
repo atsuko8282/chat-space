@@ -1,27 +1,23 @@
 .chat-main
   .chat-main__group-info
     .group-detail
-      %p.group-detail__group-name test
-      %p.group-detail__group-member Member：masa
+      .group-detail__group-name
+        = @group.name
+      %ul.group-detail__group-member
+        %li Member：
+        - @group.users.each do |user|
+          %li.member-detail
+            = user.name
     .button
-      = link_to 'Edit', '#'
+      = link_to 'Edit', edit_group_path(@group)
   .chat-main__message-list
-    .message-detail
-      .message-detail__name-date
-        %p.member-name masa
-        %p.date 2019/11/20(Wed) 17:43:01
-      %p.message-detail__message おはよう！
-    .message-detail
-      .message-detail__name-date
-        %p.member-name masa
-        %p.date 2019/11/20(Wed) 17:43:34
-      %p.message-detail__message 今日は夜から雨
+    = render @messages #collectionが省略されていてメッセージの一括取得ができる
   .chat-main__message-form
-    = form_with url: "#", method: :post, local: true do |form|
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .text-field
-        = form.text_field :message, class: "message", placeholder: "type a message"
-        %label{ class: "text-field__image", for: "message-image" }  
+        = f.text_field :content, class: 'message', placeholder: 'type a message'
+        = f.label :image, class: 'text-field__image', for: 'message-image' do
           = icon('far', 'image', class: 'icon')
-          = form.file_field :image, id: "message-image"
+          = f.file_field :image, id: "message-image"
       .send-button
-        = form.submit "Send", class: "send"
+        = f.submit 'Send', class: 'send'
