@@ -9,7 +9,7 @@
           %li.member-detail
             = user.name
     .button
-      = link_to 'Edit', '#'
+      = link_to 'Edit', edit_group_path(@group)
   .chat-main__message-list
     = render @messages #collectionが省略されていてメッセージの一括取得ができる
   .chat-main__message-form
