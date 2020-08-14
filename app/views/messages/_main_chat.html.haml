@@ -11,7 +11,7 @@
     .button
       = link_to 'Edit', edit_group_path(@group)
   .chat-main__message-list
-    = render @messages #collectionが省略されていてメッセージの一括取得ができる
+    = render @messages
   .chat-main__message-form
     = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
       .text-field
